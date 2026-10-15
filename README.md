@@ -75,6 +75,9 @@ Every visit carries a live countdown ticking toward
 - **⏳ Live countdown** — days · hours · minutes · seconds until the reception, updating every second.
 - **🗓️ One-tap actions** — add the celebration to Google Calendar, get directions to the venue, wish the groom on WhatsApp, or contact Aswin directly.
 - **📱 Mobile-first design** — fluid single-line name scaling, 44px touch-friendly buttons, and a layout that stays elegant on any screen.
+- **💠 Branded favicon** — an A ♥ A monogram crest in emerald &amp; gold for browser tabs, bookmarks and iOS home screens.
+- **📤 Rich link previews** — sharing the link on WhatsApp, Messenger, Slack or X shows a custom emerald &amp; gold invitation card (Open Graph / Twitter).
+- **📲 Installable** — a web app manifest lets guests add the invitation to their home screen and open it full-screen like an app.
 - **🎨 Emerald &amp; gold identity** — metallic gradient names, ornamental corner flourishes, a textured emerald backdrop, and blooming lotus graphics at the foot of the card.
 
 ## 🎨 Design Language
@@ -111,6 +114,16 @@ Every visit carries a live countdown ticking toward
 ```text
 akshay-athulya.github.io/
 ├── index.html                     # The complete invitation — a self-contained single page
+├── favicon.svg                    # A ♥ A monogram favicon (vector source of truth)
+├── favicon.ico                    # Legacy favicon (16 / 32 / 48 px)
+├── favicon-32.png                 # Browser tab icon
+├── favicon-16.png                 # Small browser tab icon
+├── apple-touch-icon.png           # iOS home-screen icon (180 px)
+├── og-image.png                   # 1200×630 social share card (Open Graph / Twitter)
+├── manifest.webmanifest           # PWA manifest — installable home-screen app
+├── icon-192.png                   # PWA icon (192 px)
+├── icon-512.png                   # PWA icon (512 px)
+├── icon-512-maskable.png          # PWA maskable icon (512 px)
 ├── Twelve_Thousand_Petals.mp3     # Optional background track (synth fallback plays if absent)
 └── README.md                      # This document
 ```
