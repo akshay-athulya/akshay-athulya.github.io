@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wedding Invitation | Akshay & Athulya</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display, Arizonia, Cinzel, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Typography */
+    .font-arizonia {
+      font-family: 'Arizonia', cursive;
+    }
+    .font-serif-classic {
+      font-family: 'Playfair Display', serif;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    .font-sans-clean {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Strict single line fluid font scaling for Couple Names on mobile screens */
+    .name-fluid-text {
+      font-size: clamp(1.5rem, 6.8vw, 3.8rem);
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Metallic Gold Text Styling */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFE89C 0%, #F5CE62 30%, #E2A732 50%, #C4871B 75%, #F7DA8B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    }
+
+    /* Border & Decorative Glows */
+    .gold-box-glow {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 163, 89, 0.12);
+    }
+
+    /* Deep Emerald Texture Background */
+    .bg-dark-emerald {
+      background-color: #051a10;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(12, 50, 32, 0.9) 0%, rgba(4, 18, 11, 0.98) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm28-65c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm23-11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-6 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm29 22c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%20b8860b' fill-opacity='0.035' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    /* Cover Animation */
+    #cover-overlay {
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cover-hidden {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(1.05) translateY(-20px) !important;
+    }
+
+    /* Falling Rose Petals CSS Animation */
+    #petals-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 25;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #e64c65 100%);
+      border-radius: 150% 0 150% 0;
+      opacity: 0.85;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+      animation: fall linear infinite, sway ease-in-out infinite alternate;
+    }
+
+    @keyframes fall {
+      0% { top: -10%; }
+      100% { top: 110%; }
+    }
+
+    @keyframes sway {
+      0% { transform: rotate(0deg) translateX(0px); }
+      100% { transform: rotate(180deg) translateX(35px); }
+    }
+
+    /* Custom Mobile Touch Optimizations */
+    @media (max-width: 640px) {
+      .touch-btn {
+        min-height: 44px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark-emerald text-amber-100 min-h-screen font-sans-clean selection:bg-amber-800 selection:text-amber-100 overflow-x-hidden antialiased">
+
+  <!-- Audio Element with Procedural Music Generator Backup -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="Twelve_Thousand_Petals.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Audio Mute/Unmute Toggle Button -->
+  <button id="audio-toggle" onclick="toggleAudio()" aria-label="Toggle Music" class="fixed bottom-5 right-5 z-50 bg-emerald-950/90 border border-amber-500/50 p-3 rounded-full text-amber-300 shadow-2xl backdrop-blur-md hover:bg-emerald-900 active:scale-95 transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none">
+    <i id="audio-icon" data-lucide="music" class="w-5 h-5 animate-pulse"></i>
+  </button>
+
+  <!-- Falling Rose Petals Container -->
+  <div id="petals-container"></div>
+
+  <!-- Interactive Entrance Cover Overlay -->
+  <div id="cover-overlay" class="fixed inset-0 z-40 bg-emerald-950 flex flex-col items-center justify-center p-4">
+    <div class="absolute inset-4 border-2 border-amber-500/30 rounded-2xl pointer-events-none"></div>
+    <div class="absolute inset-6 border border-amber-500/15 rounded-xl pointer-events-none"></div>
+
+    <div class="bg-emerald-900/40 border border-amber-500/40 rounded-3xl p-8 sm:p-12 text-center shadow-2xl backdrop-blur-xl flex flex-col items-center max-w-[92vw] sm:max-w-md mx-4 relative gold-box-glow">
+      
+      <!-- Elegant Couple Monogram (A & A) -->
+      <div class="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center mb-5">
+        <!-- Circular Decorative Golden Crest Frame -->
+        <svg class="absolute inset-0 w-full h-full text-amber-400 animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <circle cx="50" cy="50" r="46" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <circle cx="50" cy="50" r="42" stroke-width="1.2" opacity="0.8"/>
+          <!-- Ornate corner accents on monogram -->
+          <circle cx="50" cy="8" r="2.5" fill="currentColor"/>
+          <circle cx="50" cy="92" r="2.5" fill="currentColor"/>
+          <circle cx="8" cy="50" r="2.5" fill="currentColor"/>
+          <circle cx="92" cy="50" r="2.5" fill="currentColor"/>
+        </svg>
+
+        <!-- Floral Laurel Wreath Crest -->
+        <svg class="absolute inset-1 w-[90%] h-[90%] text-amber-400/70" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 12 C 40 12, 25 22, 22 38 C 20 48, 24 58, 20 68 C 18 73, 14 78, 10 82 C 22 84, 34 76, 38 66 C 40 60, 38 52, 42 42 C 45 34, 48 24, 50 12 Z" opacity="0.85"/>
+          <path d="M50 12 C 60 12, 75 22, 78 38 C 80 48, 76 58, 80 68 C 82 73, 86 78, 90 82 C 78 84, 66 76, 62 66 C 60 60, 62 52, 58 42 C 55 34, 52 24, 50 12 Z" opacity="0.85"/>
+        </svg>
+
+        <!-- Monogram Initials (A & A) -->
+        <div class="relative z-10 flex items-center justify-center font-cinzel text-amber-300 font-bold tracking-tighter" style="text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
+          <span class="text-2xl sm:text-3xl gold-gradient-text">A</span>
+          <span class="text-xs sm:text-sm text-amber-400 mx-1 font-serif-classic italic opacity-90">&amp;</span>
+          <span class="text-2xl sm:text-3xl gold-gradient-text">A</span>
+        </div>
+      </div>
+
+      <h3 class="font-cinzel text-amber-200 text-sm sm:text-lg font-bold tracking-widest mb-1">AKSHAY & ATHULYA</h3>
+      <p class="font-serif-classic italic text-amber-400/80 text-xs sm:text-sm mb-6">Digital Wedding Invitation</p>
+
+      <button onclick="openInvitation()" class="touch-btn px-8 py-3.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-emerald-950 font-bold rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all duration-300 font-cinzel text-xs sm:text-sm tracking-widest flex items-center gap-2.5">
+        <span>OPEN INVITATION</span>
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Scrollable Invitation Card Container -->
+  <main class="min-h-screen py-6 sm:py-12 px-3 sm:px-6 flex justify-center items-center relative z-10">
+    <div class="max-w-xl w-full bg-emerald-950/90 border-2 border-amber-500/40 rounded-2xl p-4 sm:p-10 shadow-2xl relative backdrop-blur-md gold-box-glow my-2">
+      
+      <!-- Inner Frame Border -->
+      <div class="absolute inset-2 sm:inset-4 border border-amber-500/20 rounded-xl pointer-events-none"></div>
+
+      <!-- Ornamental Corner Flourishes -->
+      <div class="absolute top-4 left-4 w-7 h-7 sm:w-10 sm:h-10 border-t-2 border-l-2 border-amber-500/50"></div>
+      <div class="absolute top-4 right-4 w-7 h-7 sm:w-10 sm:h-10 border-t-2 border-r-2 border-amber-500/50"></div>
+      <div class="absolute bottom-4 left-4 w-7 h-7 sm:w-10 sm:h-10 border-b-2 border-l-2 border-amber-500/50"></div>
+      <div class="absolute bottom-4 right-4 w-7 h-7 sm:w-10 sm:h-10 border-b-2 border-r-2 border-amber-500/50"></div>
+
+      <!-- Header Mantra Section (Replaces Om graphic symbol) -->
+      <div class="text-center mb-6 pt-2">
+        <p class="font-cinzel text-amber-300 font-semibold tracking-widest text-xs sm:text-sm gold-gradient-text">
+          || OM GANAPATHAYE NAMAHA ||
+        </p>
+        <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-amber-400/60 to-transparent mx-auto mt-2"></div>
+      </div>
+
+      <!-- Hosts Section -->
+      <div class="text-center space-y-1.5 mb-6">
+        <p class="font-cinzel text-amber-400 tracking-widest text-[11px] sm:text-xs uppercase">WE</p>
+        <h2 class="font-serif-classic text-lg sm:text-2xl text-amber-200 font-semibold tracking-wide">K. V. Purushan & Sindhu K. S.</h2>
+        <p class="font-serif-classic text-[11px] sm:text-xs text-amber-100/70 italic max-w-md mx-auto leading-tight">
+          Kuthukallingal House, Gandhinagar, Kureekad, Ernakulam
+        </p>
+        <div class="w-20 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto my-2"></div>
+        <p class="font-serif-classic text-amber-200/90 italic text-xs sm:text-base max-w-md mx-auto leading-relaxed">
+          cordially invite you along with your family to grace the wedding reception of our son
+        </p>
+      </div>
+
+      <!-- Couple Names Section with strict Single-Line Mobile Formatting -->
+      <div class="text-center my-6 py-2">
+        
+        <!-- Groom Name (Single Line Guaranteed) -->
+        <div class="w-full overflow-hidden px-1">
+          <h1 class="font-arizonia gold-gradient-text name-fluid-text">
+            Akshay K Purushan
+          </h1>
+        </div>
+
+        <!-- Connector "with" -->
+        <div class="flex items-center justify-center gap-3 my-1">
+          <div class="w-10 sm:w-16 h-px bg-gradient-to-r from-transparent to-amber-500/60"></div>
+          <span class="font-serif-classic italic text-amber-300/80 text-xs sm:text-sm">with</span>
+          <div class="w-10 sm:w-16 h-px bg-gradient-to-l from-transparent to-amber-500/60"></div>
+        </div>
+
+        <!-- Bride Name (Single Line Guaranteed) -->
+        <div class="w-full overflow-hidden px-1">
+          <h1 class="font-arizonia gold-gradient-text name-fluid-text">
+            Athulya Asok
+          </h1>
+        </div>
+
+        <!-- Bride Parents Details -->
+        <div class="mt-3 max-w-md mx-auto px-2">
+          <p class="font-serif-classic text-[11px] sm:text-xs text-amber-200/80 leading-snug">
+            D/o. Mr. K. T. Asok Kumar & Mrs. Ligimol T. T.
+          </p>
+          <p class="font-serif-classic text-[10px] sm:text-xs text-amber-100/60 italic leading-snug mt-0.5">
+            Arackal House, Brahmamangalam, Thalayolaparambu, Kottayam
+          </p>
+        </div>
+      </div>
+
+      <!-- Reception Event Banner -->
+      <div class="bg-emerald-900/50 border border-amber-500/35 rounded-xl p-4 sm:p-6 my-6 text-center backdrop-blur-sm relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-950 px-3 py-0.5 border border-amber-500/40 rounded-full whitespace-nowrap">
+          <span class="font-cinzel text-amber-400 text-[10px] sm:text-xs tracking-widest uppercase">Wedding Reception</span>
+        </div>
+
+        <p class="font-serif-classic text-base sm:text-xl text-amber-200 font-bold mt-1">
+          Sunday, 15th November 2026
+        </p>
+        <p class="font-serif-classic text-xs sm:text-base text-amber-300 mt-1">
+          at Infant Jesus Parish Hall, Kandanad
+        </p>
+        <p class="font-sans-clean text-[11px] sm:text-xs text-amber-400/90 tracking-wider mt-1 font-semibold">
+          from 6.00 p.m. to 9.00 p.m.
+        </p>
+      </div>
+
+      <!-- Marriage Solemnization Low Priority Note -->
+      <div class="text-center mb-6 p-3 sm:p-4 bg-emerald-950/50 border border-amber-500/20 rounded-lg">
+        <p class="font-serif-classic text-[11px] sm:text-xs text-amber-300/70 italic leading-relaxed">
+          The marriage will be solemnised on the same day<br>
+          at <strong class="text-amber-200 not-italic">Sree Bhadra Auditorium, Arayankavu</strong><br>
+          <span class="text-amber-400/80 font-sans-clean text-[10px] sm:text-xs">Muhurtham: 10.00 a.m. to 10.30 a.m.</span>
+        </p>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="my-6 text-center">
+        <h4 class="font-cinzel text-[10px] sm:text-xs tracking-widest text-amber-400 uppercase mb-3">Countdown to Celebration</h4>
+        <div id="countdown" class="grid grid-cols-4 gap-2 max-w-xs sm:max-w-sm mx-auto">
+          <div class="bg-emerald-900/60 border border-amber-500/30 p-2 rounded-lg text-center">
+            <span id="days" class="font-cinzel text-base sm:text-2xl font-bold text-amber-200">00</span>
+            <span class="block text-[9px] sm:text-[10px] text-amber-400/70 uppercase">Days</span>
+          </div>
+          <div class="bg-emerald-900/60 border border-amber-500/30 p-2 rounded-lg text-center">
+            <span id="hours" class="font-cinzel text-base sm:text-2xl font-bold text-amber-200">00</span>
+            <span class="block text-[9px] sm:text-[10px] text-amber-400/70 uppercase">Hours</span>
+          </div>
+          <div class="bg-emerald-900/60 border border-amber-500/30 p-2 rounded-lg text-center">
+            <span id="minutes" class="font-cinzel text-base sm:text-2xl font-bold text-amber-200">00</span>
+            <span class="block text-[9px] sm:text-[10px] text-amber-400/70 uppercase">Mins</span>
+          </div>
+          <div class="bg-emerald-900/60 border border-amber-500/30 p-2 rounded-lg text-center">
+            <span id="seconds" class="font-cinzel text-base sm:text-2xl font-bold text-amber-200">00</span>
+            <span class="block text-[9px] sm:text-[10px] text-amber-400/70 uppercase">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Action Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 my-6">
+        
+        <!-- Add to Google Calendar -->
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception+-+Akshay+%26+Athulya&dates=20261115T123000Z/20261115T153000Z&details=Wedding+Reception+of+Akshay+K+Purushan+and+Athulya+Asok.&location=Infant+Jesus+Parish+Hall,+Kandanad" target="_blank" class="touch-btn flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-900/60 hover:bg-emerald-800/80 active:scale-98 border border-amber-500/40 rounded-xl text-amber-200 text-xs font-medium transition-all shadow-md group">
+          <i data-lucide="calendar-plus" class="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform"></i>
+          <span>Add to Calendar</span>
+        </a>
+
+        <!-- Google Maps Venue Location -->
+        <a href="https://maps.google.com/?q=Infant+Jesus+Parish+Hall+Kandanad" target="_blank" class="touch-btn flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-900/60 hover:bg-emerald-800/80 active:scale-98 border border-amber-500/40 rounded-xl text-amber-200 text-xs font-medium transition-all shadow-md group">
+          <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform"></i>
+          <span>Get Reception Location</span>
+        </a>
+
+        <!-- WhatsApp Groom Wish -->
+        <a href="https://wa.me/918289907085?text=Congratulations%20Akshay!%20Wishing%20you%20and%20Athulya%20a%20happy%20married%20life." target="_blank" class="touch-btn flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-900/60 hover:bg-emerald-800/80 active:scale-98 border border-amber-500/40 rounded-xl text-amber-200 text-xs font-medium transition-all shadow-md group">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+          <span>Wish Groom (WhatsApp)</span>
+        </a>
+
+        <!-- Contact Aswin K Purushan -->
+        <a href="https://wa.me/918139075222?text=Hi%20Aswin,%20I%20have%20a%20query%20regarding%20Akshay's%20wedding." target="_blank" class="touch-btn flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-900/60 hover:bg-emerald-800/80 active:scale-98 border border-amber-500/40 rounded-xl text-amber-200 text-xs font-medium transition-all shadow-md group">
+          <i data-lucide="phone-call" class="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform"></i>
+          <span>Contact Aswin K Purushan</span>
+        </a>
+      </div>
+
+      <!-- Footer RSVP / Contacts -->
+      <div class="text-center pt-4 border-t border-amber-500/20">
+        <p class="font-serif-classic text-xs sm:text-sm text-amber-300 font-semibold">
+          Sharing happiness: Aswin K. Purushan
+        </p>
+        <p class="font-sans-clean text-[11px] text-amber-200/70 mt-0.5">
+          Contact: +91 8139075222
+        </p>
+      </div>
+
+      <!-- Bottom Pink Floral Graphics -->
+      <div class="mt-6 flex justify-between items-end px-2 opacity-95 pointer-events-none">
+        
+        <!-- Left Lotus Illustration -->
+        <svg class="w-16 h-16 sm:w-24 sm:h-24 text-pink-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <!-- Elegant Blooming Lotus Vector -->
+          <path d="M 50 85 C 30 85 15 70 10 50 C 25 50 40 62 50 85 Z" fill="#E11D48" opacity="0.85" />
+          <path d="M 50 85 C 70 85 85 70 90 50 C 75 50 60 62 50 85 Z" fill="#E11D48" opacity="0.85" />
+          <path d="M 50 85 C 20 70 15 40 25 25 C 35 45 42 65 50 85 Z" fill="#F43F5E" opacity="0.9" />
+          <path d="M 50 85 C 80 70 85 40 75 25 C 65 45 58 65 50 85 Z" fill="#F43F5E" opacity="0.9" />
+          <path d="M 50 85 C 32 60 30 35 50 12 C 70 35 68 60 50 85 Z" fill="#FB7185" />
+          <circle cx="50" cy="85" r="4" fill="#F59E0B" stroke="none" />
+        </svg>
+
+        <!-- Right Lotus Illustration -->
+        <svg class="w-16 h-16 sm:w-24 sm:h-24 text-pink-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <!-- Elegant Blooming Lotus Vector -->
+          <path d="M 50 85 C 30 85 15 70 10 50 C 25 50 40 62 50 85 Z" fill="#E11D48" opacity="0.85" />
+          <path d="M 50 85 C 70 85 85 70 90 50 C 75 50 60 62 50 85 Z" fill="#E11D48" opacity="0.85" />
+          <path d="M 50 85 C 20 70 15 40 25 25 C 35 45 42 65 50 85 Z" fill="#F43F5E" opacity="0.9" />
+          <path d="M 50 85 C 80 70 85 40 75 25 C 65 45 58 65 50 85 Z" fill="#F43F5E" opacity="0.9" />
+          <path d="M 50 85 C 32 60 30 35 50 12 C 70 35 68 60 50 85 Z" fill="#FB7185" />
+          <circle cx="50" cy="85" r="4" fill="#F59E0B" stroke="none" />
+        </svg>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Audio Playback Handler with Web Audio Synth Backup
+    const audio = document.getElementById('wedding-audio');
+    const audioToggle = document.getElementById('audio-toggle');
+    let isPlaying = false;
+    let synthInterval = null;
+
+    function startSyntheticMusic() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23]; // Soft ambient pentatonic chord progression
+        let noteIdx = 0;
+
+        synthInterval = setInterval(() => {
+          if (!isPlaying) return;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(notes[noteIdx], ctx.currentTime);
+          noteIdx = (noteIdx + 1) % notes.length;
+          
+          gain.gain.setValueAtTime(0.01, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.5);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.5);
+          
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          
+          osc.start();
+          osc.stop(ctx.currentTime + 2.6);
+        }, 1800);
+      } catch (e) {
+        console.log("Web Audio API unavailable");
+      }
+    }
+
+    function openInvitation() {
+      const cover = document.getElementById('cover-overlay');
+      cover.classList.add('cover-hidden');
+
+      // Play audio
+      audio.play().then(() => {
+        isPlaying = true;
+      }).catch(err => {
+        // Fallback ambient music synth if MP3 is blocked or not found
+        isPlaying = true;
+        startSyntheticMusic();
+      });
+
+      // Show floating mute control
+      audioToggle.classList.remove('opacity-0', 'pointer-events-none');
+
+      // Trigger Falling Rose Petals
+      createPetals();
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        if (synthInterval) clearInterval(synthInterval);
+        isPlaying = false;
+        document.getElementById('audio-icon').setAttribute('data-lucide', 'volume-x');
+      } else {
+        audio.play().catch(() => startSyntheticMusic());
+        isPlaying = true;
+        document.getElementById('audio-icon').setAttribute('data-lucide', 'music');
+      }
+      lucide.createIcons();
+    }
+
+    // Event Countdown Calculation
+    const targetDate = new Date("November 15, 2026 18:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Falling Rose Petals Generator
+    function createPetals() {
+      const container = document.getElementById('petals-container');
+      const petalCount = 18;
+
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        
+        const size = Math.random() * 10 + 8;
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size * 1.3}px`;
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDuration = `${Math.random() * 4 + 6}s, ${Math.random() * 3 + 2}s`;
+        petal.style.animationDelay = `${Math.random() * 4}s`;
+
+        container.appendChild(petal);
+      }
+    }
+  </script>
+</body>
+</html>
