@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Akshay and Athulya — A and A monogram">
+  <defs>
+    <!-- Deep emerald radial glow, matching the invitation background -->
+    <radialGradient id="bg" cx="50%" cy="32%" r="85%">
+      <stop offset="0%" stop-color="#0d3522"/>
+      <stop offset="60%" stop-color="#072014"/>
+      <stop offset="100%" stop-color="#04120b"/>
+    </radialGradient>
+    <!-- Metallic gold gradient, matching .gold-gradient-text -->
+    <linearGradient id="gold" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#FFE89C"/>
+      <stop offset="30%" stop-color="#F5CE62"/>
+      <stop offset="50%" stop-color="#E2A732"/>
+      <stop offset="75%" stop-color="#C4871B"/>
+      <stop offset="100%" stop-color="#F7DA8B"/>
+    </linearGradient>
+    <!-- User-space gold sweep so zero-height strokes (crossbars) paint reliably -->
+    <linearGradient id="goldMono" gradientUnits="userSpaceOnUse" x1="12" y1="18" x2="52" y2="45">
+      <stop offset="0%" stop-color="#FFE89C"/>
+      <stop offset="30%" stop-color="#F5CE62"/>
+      <stop offset="50%" stop-color="#E2A732"/>
+      <stop offset="75%" stop-color="#C4871B"/>
+      <stop offset="100%" stop-color="#F7DA8B"/>
+    </linearGradient>
+    <!-- Rose petal gradient, matching .petal -->
+    <linearGradient id="petal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8aa0"/>
+      <stop offset="55%" stop-color="#ff758c"/>
+      <stop offset="100%" stop-color="#e64c65"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Emerald badge with double gold frame -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+  <rect x="6.5" y="6.5" width="51" height="51" rx="8.5" fill="none" stroke="#d4a359" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Monogram: A ♥ A -->
+  <g fill="none" stroke="url(#goldMono)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12.5 43.5 L20 20 L27.5 43.5" stroke-width="4.8"/>
+    <path d="M15.4 34.8 L24.6 34.8" stroke-width="4.6"/>
+    <path d="M36.5 43.5 L44 20 L51.5 43.5" stroke-width="4.8"/>
+    <path d="M39.4 34.8 L48.6 34.8" stroke-width="4.6"/>
+  </g>
+  <path d="M32 34.2 C31.5 33.7 26.6 29.9 26.6 27.2 C26.6 25.2 28.2 23.8 30 23.8 C30.9 23.8 31.6 24.3 32 25 C32.4 24.3 33.1 23.8 34 23.8 C35.8 23.8 37.4 25.2 37.4 27.2 C37.4 29.9 32.5 33.7 32 34.2 Z" fill="url(#petal)"/>
+</svg>
